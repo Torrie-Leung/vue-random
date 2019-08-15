@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.bootcss.com/vue/2.6.10/vue.common.dev.js"></script>
+</head>
+<body>
+  <div id="app">
+    parent context: {{text}} <br>
+    <com-input :text.sync="text" ></com-input>
+  </div>
+  <script>
+    
+    Vue.component('com-input',{
+      props: {
+        //接收父级通过prop传递的属性数据text(object)
+        text:{
+          type: String,
+          default: 'pls input'
+        }
+      },
+      template:'<input @change="handleChange" v-model="msg"/>',
+      data() {
+        return {
+          msg: this.text
+        }
+      },
+      methods:{
+        handleChange(e){
+          this.$emit('update:text',this.msg)
+        }
+      }
+    })
+
+    const app = new Vue({
+      el:'#app',
+      data() {
+        return {
+          text: 'hey hey hey'
+        }
+      },
+      // methods: {
+      //   handleChange(val){
+      //     console.log(val)
+      //     this.text = val
+      //   }
+      // },
+    })
+  </script>
+</body>
+</html>
