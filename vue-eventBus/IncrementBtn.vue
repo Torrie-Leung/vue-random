@@ -1,10 +1,15 @@
 <template>
-  <button class="inc">Increment Button</button>
+  <button class="inc" @click.prevent="handleInc">Increment Button</button>
 </template>
 
 <script>
   export default {
-    name:'IncrementBtn'
+    name:'IncrementBtn',
+    methods: {
+      handleInc() {
+        eventBus.$emit('count-incremented')
+      }
+    },
   }
 </script>
 
@@ -12,6 +17,5 @@
 .inc{
   background-color:#44c767;
 	border:1px solid #18ab29;
-	font-size:17px;
 }
 </style>
