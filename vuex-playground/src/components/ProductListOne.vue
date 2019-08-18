@@ -7,7 +7,7 @@
         <span class="price">${{product.price}}</span>
       </li>
     </ul>
-    <button @click="reducePrice">hit and cut $1 off</button>
+    <button @click="reducePrice(3)">hit and cut $3 off</button>
   </div>
 </template>
 
@@ -22,9 +22,10 @@
       }
     },
     methods: {
-      reducePrice() {
+      reducePrice(amount) {
         // commit a mutation
-        this.$store.commit('reducePrice')
+        // this.$store.commit('reducePrice')
+        this.$store.dispatch('reducePrice',amount)
       }
     },
   }
