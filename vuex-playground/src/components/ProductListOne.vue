@@ -17,13 +17,7 @@
         return this.$store.state.products
       },
       saleProducts() {
-        const saleProducts = this.$store.state.products.map(product => {
-          return {
-            name:'**'+product.name+'**',
-            price: (product.price*0.8).toFixed(2)
-          }
-        });
-        return saleProducts;
+        return this.$store.getters.saleProducts
       }
     },
   }
