@@ -12,21 +12,29 @@
 </template>
 
 <script>
+  import {mapActions} from 'vuex';
+  import {mapGetters} from 'vuex';
   export default {
     computed: {
       products() {
         return this.$store.state.products
       },
-      saleProducts() {
-        return this.$store.getters.saleProducts
-      }
+      // saleProducts() {
+      //   return this.$store.getters.saleProducts
+      // }
+      ...mapGetters([
+        'saleProducts'
+      ])
     },
     methods: {
-      reducePrice(amount) {
+      //reducePrice(amount) {
         // commit a mutation
         // this.$store.commit('reducePrice')
-        this.$store.dispatch('reducePrice',amount)
-      }
+        //this.$store.dispatch('reducePrice',amount)
+      //}
+      ...mapActions([
+          'reducePrice'
+        ])
     },
   }
 </script>
