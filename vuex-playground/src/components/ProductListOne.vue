@@ -1,12 +1,13 @@
 <template>
   <div id="product-list-one">
-    <h2>P-List One</h2>
+    <h2>Big Bargain List</h2>
     <ul>
       <li v-for="(product,index) in saleProducts" :key="index">
         <span class="name">{{product.name}}</span>
         <span class="price">${{product.price}}</span>
       </li>
     </ul>
+    <button @click="reducePrice">hit and cut $1 off</button>
   </div>
 </template>
 
@@ -18,6 +19,12 @@
       },
       saleProducts() {
         return this.$store.getters.saleProducts
+      }
+    },
+    methods: {
+      reducePrice() {
+        // commit a mutation
+        this.$store.commit('reducePrice')
       }
     },
   }
