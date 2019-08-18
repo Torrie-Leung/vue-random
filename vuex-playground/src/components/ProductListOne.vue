@@ -2,7 +2,7 @@
   <div id="product-list-one">
     <h2>P-List One</h2>
     <ul>
-      <li v-for="(product,index) in products" :key="index">
+      <li v-for="(product,index) in saleProducts" :key="index">
         <span class="name">{{product.name}}</span>
         <span class="price">${{product.price}}</span>
       </li>
@@ -15,6 +15,15 @@
     computed: {
       products() {
         return this.$store.state.products
+      },
+      saleProducts() {
+        const saleProducts = this.$store.state.products.map(product => {
+          return {
+            name:'**'+product.name+'**',
+            price: (product.price*0.8).toFixed(2)
+          }
+        });
+        return saleProducts;
       }
     },
   }
