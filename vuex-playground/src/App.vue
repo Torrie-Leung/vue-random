@@ -16,12 +16,7 @@ export default {
   },
   data() {
     return {
-      products: [
-        {name:'Mario Cart',price: 2300},
-        {name:'Luigi Mansion',price: 230000},
-        {name:'Yoshi Sashimi',price: 230},
-        {name:'Toad Mushroom',price: 23}
-      ]
+      
     }
   },
 }
