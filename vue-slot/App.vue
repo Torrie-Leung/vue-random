@@ -1,8 +1,17 @@
 <template>
   <div>
     <Helper>
-      <h2 slot="title">{{title}}</h2>
-      <p slot="text">I'm the p-text for the slot</p>
+      <div slot="form-header">
+        <h3>This is the title of the form</h3>
+        <p>Info about the form</p>
+      </div>
+      <div slot="form-fields">
+        <input type="text" placeholder="name" required />
+        <input type="password" placeholder="password" required />
+      </div>
+      <div slot="form-controls">
+        <button @click="handleSubmit">Submit</button>
+      </div>
     </Helper>
   </div>
 </template>
@@ -16,6 +25,11 @@
     data() {
       return {
         title: 'I\'m a dynamic slot title'
+      }
+    },
+    methods: {
+      handleSubmit() {
+        
       }
     },
   }

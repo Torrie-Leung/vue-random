@@ -1,8 +1,25 @@
 <template>
   <div>
-    <slot name="title"></slot>
-    <h1>I'm a helper~</h1>
-    <slot name="text"></slot>
+    <h2>Please fill out our form.</h2>
+    <form>
+      <div id="form-header">
+        <slot name="form-header"></slot>
+      </div>
+      <div id="form-fields">
+        <slot name="form-fields"></slot>
+      </div>
+      <div id="form-controls">
+        <slot name="form-controls"></slot>
+      </div>
+      <div id="useful-links">
+        <ul>
+          <li><a href="#">link 1</a></li>
+          <li><a href="#">link 2</a></li>
+          <li><a href="#">link 3</a></li>
+          <li><a href="#">link 4</a></li>
+        </ul>
+      </div>
+    </form>
   </div>
 </template>
 
@@ -12,6 +29,29 @@
   }
 </script>
 
-<style>
-
+<style lang="css" >
+  h2{
+    text-align: center;
+  }
+  form{
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  #useful-links ul{
+    padding: 0;
+  }
+  #useful-links li{
+    display: inline-block;
+    margin-right: 10px;
+  }
+  form > div{
+    padding: 20px;
+    background: #eee;
+    margin: 20px 0;
+  }
+  #form-header{
+    background: #ddd;
+    border: 1px solid #bbb;
+}
 </style>
