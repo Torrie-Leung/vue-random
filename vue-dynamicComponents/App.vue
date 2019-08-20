@@ -1,7 +1,10 @@
 <template>
   <div>
-    
-    <component :is="component"></component>
+    <keep-alive>
+      <component :is="component"></component>
+    </keep-alive>
+    <button @click="component = 'form-one'">Show form-one</button>
+    <button @click="component = 'form-two'">Show form-two</button>
   </div>
 </template>
 
