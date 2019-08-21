@@ -22,6 +22,7 @@
           {{author}}
         </option>
       </select>
+      <button @click.prevent="post">Add Blog</button>
     </form>
     <div id="preview">
       <h3>Preview blog</h3>
@@ -50,6 +51,17 @@
           author:''
         },
         authors:['Evan You','Dan Abramov','Edward Snowden']
+      }
+    },
+    methods: {
+      post() {
+        this.$http.post('https://jsonplaceholder.typicode.com/posts',{
+          title:this.blog.title,
+          body:this.blog.content,
+          userId:1
+        }).then((data) => {
+          console.log(data)
+        })
       }
     },
   }
