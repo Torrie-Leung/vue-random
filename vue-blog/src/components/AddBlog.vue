@@ -16,6 +16,12 @@
         <label>Toad</label>
         <input type="checkbox" value="toad" v-model="blog.categories">
       </div>
+      <label>Author:</label>
+      <select v-model="blog.author">
+        <option v-for="(author,index) in authors" :key="index">
+          {{author}}
+        </option>
+      </select>
     </form>
     <div id="preview">
       <h3>Preview blog</h3>
@@ -28,6 +34,7 @@
           {{category}}
         </li>
       </ul>
+      <p>Author:{{blog.author}}</p>
     </div>
   </div>
 </template>
@@ -39,8 +46,10 @@
         blog: {
           titile: '',
           content: '',
-          categories:[]
-        }
+          categories:[],
+          author:''
+        },
+        authors:['Evan You','Dan Abramov','Edward Snowden']
       }
     },
   }
