@@ -1,5 +1,5 @@
 <template>
-  <div id="show-blogs">
+  <div v-theme:column="'narrow'" id="show-blogs" >
     <h1>All Blog Articles</h1>
     <div class="single-blog" v-for="(blog,index) in blogs" :key="index">
       <h2 v-rainbow>{{blog.title}}</h2>
@@ -28,7 +28,7 @@
   }
 </script>
 
-<style scoped>
+<style >
   #show-blogs{
     max-width: 800px;
     margin: 0 auto;
