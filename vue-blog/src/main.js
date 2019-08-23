@@ -5,6 +5,7 @@ import VueResource from 'vue-resource'
 Vue.use(VueResource)
 
 Vue.config.productionTip = false
+
 //Custom directives
 Vue.directive('rainbow', {
   inserted:(el,binding,vnode) =>{
@@ -27,6 +28,15 @@ Vue.directive('theme', {
       el.style.padding = '20px'
     }
   }
+})
+
+//Filters
+Vue.filter('to-uppercase', (value) =>{
+  return value.toUpperCase()
+})
+
+Vue.filter('snippet', (value) => {
+  return value.slice(0,123) + '...'
 })
 
 new Vue({
