@@ -15,11 +15,11 @@ Vue.directive('rainbow', {
 
 Vue.directive('theme', {
   bind: (el,binding,vnode) => {
-    console.log(binding)
+    //console.log(binding)
     if(binding.value == 'wide'){
       el.style.maxWidth = '1200px'
     }else if (binding.value == 'narrow'){
-      console.log(vnode)
+      //console.log(vnode)
       el.style.maxWidth = '560px'
     }
 
