@@ -2,6 +2,7 @@
   <div id="app">
     <add-blog></add-blog>
     <show-blogs></show-blogs>
+    <list-blogs></list-blogs>
   </div>
 </template>
 
