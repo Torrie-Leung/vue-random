@@ -1,8 +1,7 @@
 <template>
   <div id="app">
-    <add-blog></add-blog>
-    <show-blogs></show-blogs>
-    <list-blogs></list-blogs>
+    <!-- <router-link to="/add">go to addBlog</router-link> -->
+    <router-view></router-view>
   </div>
 </template>
 
