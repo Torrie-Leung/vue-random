@@ -8,7 +8,8 @@ Vue.use(VueResource)
 Vue.use(VueRouter)
 
 const router = new VueRouter({
-  routes: Routes
+  routes: Routes,
+  mode: 'history'
 })
 
 Vue.config.productionTip = false
@@ -48,7 +49,7 @@ Vue.filter('snippet', (value) => {
 
 new Vue({
   render: h => h(App),
-  router:router
+  router
 }).$mount('#app')
 
 
