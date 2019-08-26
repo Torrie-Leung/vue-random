@@ -16,8 +16,8 @@
     created(){
       this.$http.get('https://jsonplaceholder.typicode.com/posts'+ '/'+this.id)
         .then( (data) => {
-          console.log(data)
-          this.blog = data.body
+          //console.log(data)
+          this.blog = data.data
         })
     }
   }
