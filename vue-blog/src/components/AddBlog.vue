@@ -86,7 +86,7 @@
   }
   input[type="text"], textarea{
     display:block;
-    width: 100%;
+    width: 97%;
     padding: 8px;
   }
   h3 {

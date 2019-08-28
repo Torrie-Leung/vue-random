@@ -1,6 +1,7 @@
 import ShowBlogs from './components/ShowBlogs.vue'
 import AddBlog from './components/AddBlog.vue'
 import SingleBlog from './components/SingleBlog.vue'
+import ListBlogs from './components/ListBlogs.vue'
 
 export default[
   {
@@ -14,5 +15,9 @@ export default[
   {
     path: '/blog/:id',
     component:SingleBlog
+  },
+  {
+    path:'/list',
+    component:ListBlogs
   }
 ]

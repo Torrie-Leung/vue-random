@@ -1,6 +1,6 @@
 <template>
   <div id="single-blog">
-    <h1>{{blog.title}}</h1>
+    <h1 ref="test">{{blog.title}}</h1>
     <article>{{blog.body}}</article>
   </div>
 </template>
@@ -19,7 +19,7 @@
           //console.log(data)
           this.blog = data.data
         })
-    }
+    },
   }
 </script>
 
