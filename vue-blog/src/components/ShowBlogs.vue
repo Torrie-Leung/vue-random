@@ -1,5 +1,5 @@
 <template>
-  <div v-theme:column="'narrow'" id="show-blogs" >
+  <div v-theme:column='width' id="show-blogs" >
     <h1>All Blog Articles</h1>
     <input type="text" v-model="search" placeholder="search blogs">
     <div class="single-blog" v-for="(blog,index) in filterBlogs" :key="index">
@@ -14,11 +14,13 @@
 
 <script>
   import searchMixin from '../mixins/searchMixin'
+  import { bus } from '../main'
   export default {
     data() {
       return {
         blogs:[],
-        search:''
+        search:'',
+        width: 'narrow'
       }
     },
     
@@ -30,7 +32,13 @@
         .then((data) => {
           //console.log(data.data)
           this.blogs = data.data.slice(0,10)
-        })
+        }),
+      bus.$on('change',(data) => {
+        console.log(data)
+        this.width = data
+        console.log(this.width)
+      })
+        
     },
     computed: {
       

@@ -9,6 +9,8 @@ import axios from 'axios'
 Vue.use(VueRouter)
 Vue.prototype.$http = axios
 
+export const bus = new Vue();
+
 const router = new VueRouter({
   routes: Routes,
   mode: 'history'
@@ -38,7 +40,16 @@ Vue.directive('theme', {
       el.style.background = '#ddd'
       el.style.padding = '20px'
     }
-  }
+  },
+update:(el,binding,vnode) =>{
+  console.log(binding)
+  if(binding.value == 'wide'){
+      el.style.maxWidth = '1200px'
+    }else if (binding.value == 'narrow'){
+      //console.log(vnode)
+      el.style.maxWidth = '560px'
+    }
+}
 })
 
 //Filters

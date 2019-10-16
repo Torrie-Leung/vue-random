@@ -11,16 +11,25 @@
         <router-link to="/list" exact>Blog List</router-link>
       </li>
     </ul>
+    <button @click="changeW">Widen</button>
   </nav>
 </template>
 
 <script>
+import { bus } from '../main'
   export default {
-    
+    methods: {
+      changeW(){
+        bus.$emit('change','wide')
+      }
+    }
   }
 </script>
 
 <style scoped>
+  nav{
+    position: relative;
+  }
   ul{
     list-style-type: none;
     text-align: center;
@@ -44,5 +53,12 @@
   .router-link-active{
     background: #eee;
     color: #444
+  }
+
+  button {
+    position: absolute;
+    border-radius: 4px;
+    right:0;
+    top:25%;
   }
 </style>
