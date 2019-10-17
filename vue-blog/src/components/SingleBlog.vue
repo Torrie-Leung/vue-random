@@ -3,7 +3,7 @@
     <h1 ref="test">{{blog.title}}</h1>
     <article>{{blog.body}}</article>
     <a-divider type="horizontal" />
-    <div class="rating-area" v-if="!submitted">
+    <div class="rating-area" v-if="!submitted" v-show="showRatingCard">
       <a-card size="small"  title="Rate this article" :bordered="false">
         <a-alert
           message="please rate first."
@@ -35,6 +35,7 @@
         theme: null,
         submitted: false,
         alert:false,
+        showRatingCard: false,
         star:''
       }
     },
@@ -43,6 +44,7 @@
         .then( (data) => {
           //console.log(data)
           this.blog = data.data
+          this.showRatingCard = true
         })
     },
     methods: {
@@ -54,9 +56,9 @@
       rated(){
         if(this.star == ''){
           this.alert = true
-          console.log('pls rate first.')
           
         }else{
+          this.alert = false
           this.theme = 'twoTone'
           console.log('star: ',this.star)
           this.$http.post('https://jsonplaceholder.typicode.com/posts',{
