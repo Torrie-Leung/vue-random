@@ -7,7 +7,7 @@ import axios from 'axios'
 
 
 //import ant-design-vue in need
-import { Button,Switch,Rate,Input,Card,Icon,Divider } from "ant-design-vue/lib"
+import { Button,Switch,Rate,Input,Card,Icon,Divider,Alert } from "ant-design-vue/lib"
 import "ant-design-vue/dist/antd.css";
 Vue.component(Button.name, Button);
 Vue.component(Switch.name, Switch);
@@ -16,6 +16,7 @@ Vue.component(Input.name, Input);
 Vue.component(Card.name, Card);
 Vue.component(Icon.name, Icon);
 Vue.component(Divider.name, Divider);
+Vue.component(Alert .name, Alert );
 
 //Vue.use(VueResource)
 Vue.use(VueRouter)

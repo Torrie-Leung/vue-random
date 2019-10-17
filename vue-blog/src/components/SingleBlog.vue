@@ -5,6 +5,12 @@
     <a-divider type="horizontal" />
     <div class="rating-area" v-if="!submitted">
       <a-card size="small"  title="Rate this article" :bordered="false">
+        <a-alert
+          message="please rate first."
+          banner
+          closable
+          v-if="alert"
+        />
         <a-rate v-model="value" :allowClear="false" allowHalf :tooltips="desc" @change="grabStar(value)"/>
         <span class="ant-rate-text" >{{desc[value - 1.5] || desc[value - 1]}}</span>
         <a-icon type="check-circle" :theme="theme"   class="rate" @click.prevent="rated"/>
@@ -28,6 +34,7 @@
         desc: ['terrible', 'bad', 'normal', 'good', 'wonderful'],
         theme: null,
         submitted: false,
+        alert:false,
         star:''
       }
     },
@@ -46,6 +53,7 @@
       },
       rated(){
         if(this.star == ''){
+          this.alert = true
           console.log('pls rate first.')
           
         }else{
@@ -82,5 +90,10 @@
 
   .rate:hover{
     cursor: pointer;
+  }
+
+  .ant-alert{
+    font-size: 12px;
+    width: 80%;
   }
 </style>
