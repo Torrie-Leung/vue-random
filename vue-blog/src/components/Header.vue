@@ -12,7 +12,7 @@
       </li>
     </ul>
     
-    <a-switch  :disabled="disabled" checkedChildren="Widen" unCheckedChildren="Narrow"  @change="onChange($event)"/>
+    <a-switch v-model="checked" :disabled="disabled" checkedChildren="Widen" unCheckedChildren="Narrow"  @change="onChange($event)"/>
   </nav>
 </template>
 
@@ -21,7 +21,8 @@ import { bus } from '../main'
   export default {
     data() {
       return {
-        disabled: false
+        disabled: false,
+        checked: false
       }
     },
     methods: {
@@ -39,8 +40,11 @@ import { bus } from '../main'
         console.log('to:',to.name,'from:',from.name)
         if(to.name !== 'ShowBlogs'){
           this.disabled = true
+          this.checked = false
+          
         }else{
           this.disabled = false
+          this.checked = false
         }
       }
     },
