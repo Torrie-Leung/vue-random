@@ -5,10 +5,12 @@ import ListBlogs from './components/ListBlogs.vue'
 
 export default[
   {
+    name:'ShowBlogs',
     path: '/',
     component:ShowBlogs
   },
   {
+    name:'AddBlog',
     path: '/add',
     component:AddBlog
   },
@@ -17,6 +19,7 @@ export default[
     component:SingleBlog
   },
   {
+    name:'ListBlogs',
     path:'/list',
     component:ListBlogs
   }

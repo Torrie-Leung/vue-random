@@ -12,13 +12,18 @@
       </li>
     </ul>
     
-    <a-switch checkedChildren="Widen" unCheckedChildren="Narrow"  @change="onChange($event)"/>
+    <a-switch  :disabled="disabled" checkedChildren="Widen" unCheckedChildren="Narrow"  @change="onChange($event)"/>
   </nav>
 </template>
 
 <script>
 import { bus } from '../main'
   export default {
+    data() {
+      return {
+        disabled: false
+      }
+    },
     methods: {
       onChange(){
         console.log(event.target.innerText)
@@ -28,7 +33,17 @@ import { bus } from '../main'
           narrow: 'narrow'
         })
       }
-    }
+    },
+    watch: {
+      $route(to,from){
+        console.log('to:',to.name,'from:',from.name)
+        if(to.name !== 'ShowBlogs'){
+          this.disabled = true
+        }else{
+          this.disabled = false
+        }
+      }
+    },
   }
 </script>
 
