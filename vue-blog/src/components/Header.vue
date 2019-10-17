@@ -11,8 +11,8 @@
         <router-link to="/list" exact>Blog List</router-link>
       </li>
     </ul>
-    <!-- <button @click="changeW">Widen</button> -->
-    <a-switch checkedChildren="Widen" unCheckedChildren="Narrow"  @change="onChange"/>
+    
+    <a-switch checkedChildren="Widen" unCheckedChildren="Narrow"  @change="onChange($event)"/>
   </nav>
 </template>
 
@@ -20,11 +20,10 @@
 import { bus } from '../main'
   export default {
     methods: {
-      changeW(){
-        
-      },
       onChange(){
+        console.log(event.target.innerText)
         bus.$emit('toggleWidth',{
+          type:event.target.innerText,
           wide: 'wide',
           narrow: 'narrow'
         })
@@ -62,7 +61,7 @@ import { bus } from '../main'
     color: #444
   }
 
-  button {
+  .ant-switch {
     position: absolute;
     border-radius: 4px;
     right:0;

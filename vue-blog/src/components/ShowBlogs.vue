@@ -35,9 +35,9 @@
         }),
       bus.$on('toggleWidth',(data) => {
         
-        if(this.width == 'narrow'){
+        if(this.width == 'narrow'&& data.type == 'Narrow'){
           this.width = data.wide
-        }else{
+        }else if(this.width !== 'narrow' && data.type == 'Widen'){
           this.width = data.narrow
         }
       })

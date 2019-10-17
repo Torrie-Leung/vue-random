@@ -46,15 +46,15 @@ Vue.directive('theme', {
       el.style.padding = '20px'
     }
   },
-update:(el,binding,vnode) =>{
-  console.log(binding)
-  if(binding.value == 'wide'){
-      el.style.maxWidth = '1200px'
-    }else if (binding.value == 'narrow'){
-      //console.log(vnode)
-      el.style.maxWidth = '560px'
-    }
-}
+  update:(el,binding,vnode) =>{
+    //console.log(binding)
+    if(binding.value == 'wide'){
+        el.style.maxWidth = '1200px'
+      }else if (binding.value == 'narrow'){
+        //console.log(vnode)
+        el.style.maxWidth = '560px'
+      }
+  }
 })
 
 //Filters
