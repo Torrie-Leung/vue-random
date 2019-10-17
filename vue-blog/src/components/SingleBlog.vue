@@ -47,15 +47,15 @@
       rated(){
         if(this.star == ''){
           console.log('pls rate first.')
-          this.openNotification()
+          
         }else{
           this.theme = 'twoTone'
-        console.log('star: ',this.star)
-        this.$http.post('https://jsonplaceholder.typicode.com/posts',{
-          rate: this.star
-        }).then((res) => {
-          this.submitted = true
-        })
+          console.log('star: ',this.star)
+          this.$http.post('https://jsonplaceholder.typicode.com/posts',{
+            rate: this.star
+          }).then((res) => {
+            this.submitted = true
+          })
         }
         
       }

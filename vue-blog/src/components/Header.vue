@@ -37,8 +37,8 @@ import { bus } from '../main'
     },
     watch: {
       $route(to,from){
-        console.log('to:',to.name,'from:',from.name)
-        if(to.name !== 'ShowBlogs'){
+        //console.log('to:',to.name,'from:',from.name)
+        if(to.name !== 'ShowBlogs'|| to.name == 'undefined'){
           this.disabled = true
           this.checked = false
           
