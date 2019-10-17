@@ -5,6 +5,11 @@ import VueRouter from 'vue-router'
 import Routes from './routes'
 import axios from 'axios'
 
+
+import Switch from "ant-design-vue/lib/switch";
+import "ant-design-vue/dist/antd.css";
+Vue.component(Switch.name, Switch);
+
 //Vue.use(VueResource)
 Vue.use(VueRouter)
 Vue.prototype.$http = axios

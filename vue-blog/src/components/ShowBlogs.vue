@@ -33,10 +33,13 @@
           //console.log(data.data)
           this.blogs = data.data.slice(0,10)
         }),
-      bus.$on('change',(data) => {
-        console.log(data)
-        this.width = data
-        console.log(this.width)
+      bus.$on('toggleWidth',(data) => {
+        
+        if(this.width == 'narrow'){
+          this.width = data.wide
+        }else{
+          this.width = data.narrow
+        }
       })
         
     },

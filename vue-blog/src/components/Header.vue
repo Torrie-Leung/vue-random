@@ -11,7 +11,8 @@
         <router-link to="/list" exact>Blog List</router-link>
       </li>
     </ul>
-    <button @click="changeW">Widen</button>
+    <!-- <button @click="changeW">Widen</button> -->
+    <a-switch checkedChildren="Widen" unCheckedChildren="Narrow"  @change="onChange"/>
   </nav>
 </template>
 
@@ -20,7 +21,13 @@ import { bus } from '../main'
   export default {
     methods: {
       changeW(){
-        bus.$emit('change','wide')
+        
+      },
+      onChange(){
+        bus.$emit('toggleWidth',{
+          wide: 'wide',
+          narrow: 'narrow'
+        })
       }
     }
   }
