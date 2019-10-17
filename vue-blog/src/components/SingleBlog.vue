@@ -4,7 +4,8 @@
     <article>{{blog.body}}</article>
     <div class="rating-area">
       <a-card size="small"  title="Rate this article" :bordered="false">
-        <a-rate :defaultValue="2.5" allowHalf />
+        <a-rate v-model="value" allowHalf :tooltips="desc" @change="grabStar(value)"/>
+        <span class="ant-rate-text" >{{desc[value - 1.5] || desc[value - 1]}}</span>
       </a-card>
     </div>
     
@@ -16,7 +17,10 @@
     data() {
       return {
         id: this.$route.params.id,
-        blog:{}
+        blog:{},
+        value: 2.5,
+        desc: ['terrible', 'bad', 'normal', 'good', 'wonderful'],
+        comment: ''
       }
     },
     created(){
@@ -25,6 +29,12 @@
           //console.log(data)
           this.blog = data.data
         })
+    },
+    methods: {
+      grabStar(value){
+        console.log(value)
+        console.log(Number.isInteger(value))
+      }
     },
   }
 </script>
@@ -36,7 +46,7 @@
   }
 
   .rating-area{
-    width: 200px;
+    width: 300px;
     background-color: #ececec; 
     padding: 5px;
     margin-top: 20px;
