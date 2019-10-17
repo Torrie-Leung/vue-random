@@ -1,7 +1,10 @@
 <template>
   <div v-theme:column="'narrow'" id="list-blogs" >
     <h1>List Blog titles</h1>
-    <input type="text" v-model="search" placeholder="search blogs">
+    <!-- <input type="text" v-model="search" placeholder="search blogs"> -->
+    <a-input placeholder="Search Blogs" v-model="search">
+      <a-icon slot="prefix" type="search" />
+    </a-input>
     <div class="single-blog" v-for="(blog,index) in filterBlogs" :key="index">
       <h2 v-rainbow>{{blog.title|to-uppercase}}</h2>
     </div>
@@ -58,4 +61,6 @@
     box-sizing: border-box;
     background: #eee;
   }
+
+  
 </style>

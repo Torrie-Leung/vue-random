@@ -7,8 +7,16 @@ import axios from 'axios'
 
 
 import Switch from "ant-design-vue/lib/switch";
+import Rate from "ant-design-vue/lib/rate";
+import Input from "ant-design-vue/lib/input";
+import Card from "ant-design-vue/lib/card";
+import Icon from "ant-design-vue/lib/icon";
 import "ant-design-vue/dist/antd.css";
 Vue.component(Switch.name, Switch);
+Vue.component(Rate.name, Rate);
+Vue.component(Input.name, Input);
+Vue.component(Card.name, Card);
+Vue.component(Icon.name, Icon);
 
 //Vue.use(VueResource)
 Vue.use(VueRouter)

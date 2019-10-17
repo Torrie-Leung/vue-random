@@ -1,7 +1,11 @@
 <template>
   <div v-theme:column='width' id="show-blogs" >
     <h1>All Blog Articles</h1>
-    <input type="text" v-model="search" placeholder="search blogs">
+    <!-- <input type="text" v-model="search" placeholder="search blogs"> -->
+    
+    <a-input placeholder="Search Blogs" v-model="search">
+      <a-icon slot="prefix" type="search" />
+    </a-input>
     <div class="single-blog" v-for="(blog,index) in filterBlogs" :key="index">
       <router-link :to="'/blog/' + blog.id">
         <h2 v-rainbow>{{blog.title|to-uppercase}}</h2>
@@ -73,7 +77,12 @@
     box-sizing: border-box;
     background: #eee;
   }
+
   a{
     text-decoration: none;
+  }
+
+  input[type="text"]{
+    width: 100%;
   }
 </style>
