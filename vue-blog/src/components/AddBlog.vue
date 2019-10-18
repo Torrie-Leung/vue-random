@@ -23,6 +23,12 @@
           {{author}}
         </option>
       </select>
+      
+
+      <a-time-picker @change="onChange" :defaultOpenValue="moment('00:00:00', 'HH:mm:ss')" size="small">
+        <a-icon type="smile" slot="suffixIcon" />
+      </a-time-picker>
+
       <a-button @click.prevent="post" size="small">Add Blog</a-button>
     </form>
     <div v-if="submitted">
@@ -40,11 +46,13 @@
         </li>
       </ul>
       <p>Author:{{blog.author}}</p>
+      <p>Launch Time: {{blog.launchTime}}</p>
     </div>
   </div>
 </template>
 
 <script>
+import moment from 'moment'
   export default {
     data() {
       return {
@@ -52,7 +60,8 @@
           titile: '',
           content: '',
           categories:[],
-          author:''
+          author:'',
+          launchTime:''
         },
         authors:['Evan You','Dan Abramov','Edward Snowden'],
         submitted:false
@@ -69,7 +78,12 @@
           // console.log(data)
           this.submitted = true
         })
-      }
+      },
+      moment,
+      onChange(time, timeString) {
+        //console.log(time, timeString);
+        this.blog.launchTime = timeString
+      },
     },
   }
 </script>
@@ -88,7 +102,7 @@
   }
   input[type="text"], textarea{
     display:block;
-    width: 97%;
+    width: 100%;
     padding: 8px;
   }
   h3 {
