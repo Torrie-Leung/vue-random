@@ -8,7 +8,7 @@ import axios from 'axios'
 
 //import ant-design-vue in demand
 
-import { Button,Switch,Rate,Input,Card,Icon,Divider,Alert,TimePicker,Calendar } from "ant-design-vue"
+import { Button,Switch,Rate,Input,Card,Icon,Divider,Alert,TimePicker,Calendar,BackTop } from "ant-design-vue"
 import "ant-design-vue/dist/antd.css";
 Vue.component(Button.name, Button);
 Vue.component(Switch.name, Switch);
@@ -20,6 +20,7 @@ Vue.component(Divider.name, Divider);
 Vue.component(Alert.name, Alert );
 Vue.use(TimePicker);
 Vue.use(Calendar);
+Vue.use(BackTop);
 //Vue.use(VueResource)
 Vue.use(VueRouter);
 Vue.prototype.$http = axios

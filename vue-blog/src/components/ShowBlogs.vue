@@ -13,6 +13,11 @@
       
       <article>{{blog.body|snippet}}</article>
     </div>
+
+    <a-back-top />
+    Scroll down to see the bottom-right
+    <strong style="color: rgba(64, 64, 64, 0.6)"> gray </strong>
+    button.
   </div>
 </template>
 
@@ -85,4 +90,6 @@
   input[type="text"]{
     width: 100%;
   }
+
+  
 </style>
