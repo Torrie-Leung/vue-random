@@ -25,11 +25,11 @@
       </select>
       
 
-      <a-time-picker @change="onChange" :defaultOpenValue="moment('00:00:00', 'HH:mm:ss')" size="small">
+      <a-time-picker @change="onChange" :defaultOpenValue="moment('00:00:00', 'HH:mm:ss')" size="small" >
         <a-icon type="smile" slot="suffixIcon" />
       </a-time-picker>
 
-      <a-button @click.prevent="post" size="small">Add Blog</a-button>
+      <a-button @click.prevent="post" size="small" >Add Blog</a-button>
     </form>
     <div v-if="submitted">
       <h3>Thanks for adding your post :)</h3>
@@ -48,6 +48,7 @@
       <p>Author:{{blog.author}}</p>
       <p>Launch Time: {{blog.launchTime}}</p>
     </div>
+
   </div>
 </template>
 
@@ -120,4 +121,6 @@ import moment from 'moment'
   #checkboxes label{
     display:inline-block;
   }
+
+  
 </style>

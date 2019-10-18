@@ -27,7 +27,7 @@ import { bus } from '../main'
     },
     methods: {
       onChange(){
-        console.log(event.target.innerText)
+        //console.log(event.target.innerText)
         bus.$emit('toggleWidth',{
           type:event.target.innerText,
           wide: 'wide',
