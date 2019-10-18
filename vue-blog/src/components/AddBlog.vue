@@ -18,11 +18,12 @@
       </div>
       <label>Author:</label>
       <select v-model="blog.author">
+        
         <option v-for="(author,index) in authors" :key="index">
           {{author}}
         </option>
       </select>
-      <button @click.prevent="post">Add Blog</button>
+      <a-button @click.prevent="post" size="small">Add Blog</a-button>
     </form>
     <div v-if="submitted">
       <h3>Thanks for adding your post :)</h3>
@@ -58,6 +59,7 @@
       }
     },
     methods: {
+      
       post() {
         this.$http.post('https://jsonplaceholder.typicode.com/posts',{
           title:this.blog.title,
