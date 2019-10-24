@@ -6,7 +6,7 @@
         Gender: {{sex}},
         Age range: {{age}},
         <br/>
-        love {{favor.join(',')}},
+        {{favor.length ?'love':''}} {{favor.join(',')}},
         Membership: {{member ? 'yes':'no'}}
       </div>
     </div>
@@ -29,6 +29,41 @@
             <input type="radio" v-model="sex" value="unknow"/>unknown
           </td>
         </tr>
+
+        <tr>
+          <td class="title">
+            Age:
+          </td>
+          <td>
+            <select v-model="age">
+              <option value="under 20">under 20</option>
+              <option value="between 20 to 30">between 20 to 30</option>
+              <option value="between 30 to 40">between 30 to 40</option>
+              <option value="above 40">above 40</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="title">
+            Favor:
+          </td>
+          <td>
+            <input type="checkbox" v-model="favor" value="coding" checked />coding
+            <input type="checkbox" v-model="favor" value="traveling" checked />traveling
+            <input type="checkbox" v-model="favor" value="surfing" c/>surfing
+            <input type="checkbox" v-model="favor" value="jogging" checked />jogging
+          </td>
+        </tr>
+
+        <tr>
+          <td class="title">
+            Membership:
+          </td>
+          <td>
+            <input type="checkbox" v-model="member">joined
+          </td>
+        </tr>
       </table>
     </div>
   </div>
@@ -39,7 +74,7 @@
     data() {
       return {
         name: 'Bender',
-        age: "30-40",
+        age: "between 30 to 40",
         sex: 'unknown',
         favor:['coding','traveling','surfing'],
         member: true
