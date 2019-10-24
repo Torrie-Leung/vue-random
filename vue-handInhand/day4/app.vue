@@ -3,14 +3,34 @@
     <div class="ribbon">
       <div class="info">
         Name: {{name}},
-        gender: {{sex}},
-        age range: {{age}},
+        Gender: {{sex}},
+        Age range: {{age}},
         <br/>
         love {{favor.join(',')}},
         Membership: {{member ? 'yes':'no'}}
       </div>
     </div>
-    <div class="form-area"></div>
+    <div class="form-area">
+      <table>
+        <tr>
+          <td class="title">Name: </td>
+          <td>
+            <input v-model="name">
+          </td>
+        </tr>
+
+        <tr>
+          <td class="title">
+            Sex:
+          </td>
+          <td>
+            <input type="radio" v-model="sex" value="Female"/>Female
+            <input type="radio" v-model="sex" value="Male"/>Male
+            <input type="radio" v-model="sex" value="unknow"/>unknown
+          </td>
+        </tr>
+      </table>
+    </div>
   </div>
 </template>
 
@@ -59,5 +79,16 @@
   background-color: #ffffff;
   position: absolute;
   top:37%
+}
+.form-area table{
+  margin: 0 auto;
+  text-align: center;
+  
+}
+table td{
+  padding: 5px;
+}
+.title,input {
+  font-size: 1.25em;
 }
 </style>
