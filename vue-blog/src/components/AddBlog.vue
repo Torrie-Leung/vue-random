@@ -18,11 +18,18 @@
       </div>
       <label>Author:</label>
       <select v-model="blog.author">
+        
         <option v-for="(author,index) in authors" :key="index">
           {{author}}
         </option>
       </select>
-      <button @click.prevent="post">Add Blog</button>
+      
+
+      <a-time-picker @change="onChange" :defaultOpenValue="moment('00:00:00', 'HH:mm:ss')" size="small" >
+        <a-icon type="smile" slot="suffixIcon" />
+      </a-time-picker>
+
+      <a-button @click.prevent="post" size="small" >Add Blog</a-button>
     </form>
     <div v-if="submitted">
       <h3>Thanks for adding your post :)</h3>
@@ -39,11 +46,14 @@
         </li>
       </ul>
       <p>Author:{{blog.author}}</p>
+      <p>Launch Time: {{blog.launchTime}}</p>
     </div>
+
   </div>
 </template>
 
 <script>
+import moment from 'moment'
   export default {
     data() {
       return {
@@ -51,13 +61,15 @@
           titile: '',
           content: '',
           categories:[],
-          author:''
+          author:'',
+          launchTime:''
         },
         authors:['Evan You','Dan Abramov','Edward Snowden'],
         submitted:false
       }
     },
     methods: {
+      
       post() {
         this.$http.post('https://jsonplaceholder.typicode.com/posts',{
           title:this.blog.title,
@@ -67,7 +79,12 @@
           // console.log(data)
           this.submitted = true
         })
-      }
+      },
+      moment,
+      onChange(time, timeString) {
+        //console.log(time, timeString);
+        this.blog.launchTime = timeString
+      },
     },
   }
 </script>
@@ -86,7 +103,7 @@
   }
   input[type="text"], textarea{
     display:block;
-    width: 97%;
+    width: 100%;
     padding: 8px;
   }
   h3 {
@@ -104,4 +121,6 @@
   #checkboxes label{
     display:inline-block;
   }
+
+  
 </style>

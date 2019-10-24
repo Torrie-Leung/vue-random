@@ -50,8 +50,8 @@
     methods: {
       grabStar(value){
         this.star = value
-        console.log(value)
-        console.log(Number.isInteger(value))
+        //console.log(value)
+        //console.log(Number.isInteger(value))
       },
       rated(){
         if(this.star == ''){

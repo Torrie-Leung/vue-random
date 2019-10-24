@@ -2,13 +2,13 @@
   <nav>
     <ul>
       <li>
-        <router-link to="/" exact>Blog</router-link>
+        <router-link to="/" exact><a-icon type="file-search" />Blog</router-link>
       </li>
       <li>
-        <router-link to="/add" exact>Add a New Blog</router-link>
+        <router-link to="/add" exact><a-icon type="edit" />Add a New Blog</router-link>
       </li>
       <li>
-        <router-link to="/list" exact>Blog List</router-link>
+        <router-link to="/list" exact><a-icon type="book" />Blog List</router-link>
       </li>
     </ul>
     
@@ -27,7 +27,7 @@ import { bus } from '../main'
     },
     methods: {
       onChange(){
-        console.log(event.target.innerText)
+        //console.log(event.target.innerText)
         bus.$emit('toggleWidth',{
           type:event.target.innerText,
           wide: 'wide',
