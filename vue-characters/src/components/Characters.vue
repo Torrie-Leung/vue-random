@@ -12,10 +12,10 @@
       </thead>
 
       <tbody>
-        <tr >
-          <td></td>
-          <td></td>
-          <td></td>
+        <tr v-for="(character,index) in characters" :key="index">
+          <td>{{character.name}}</td>
+          <td>{{character.phone}}</td>
+          <td>{{character.email}}</td>
           <td></td>
         </tr>
       </tbody>
@@ -38,7 +38,8 @@ export default {
     fetchCharacters(){
       this.$http.get("http://localhost:3000/characters")
           .then((res) => {
-            console.log(res)
+            console.log(res.data)
+            this.characters = res.data
           })
     }
   }
