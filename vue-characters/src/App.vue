@@ -28,7 +28,7 @@
 
       <ul class="navbar-nav navbar-right">
         <li class="nav-item ">
-          <router-link to="./add">Add</router-link>
+          <router-link to="./add">Add Character</router-link>
         </li>
         
       </ul>
