@@ -1,5 +1,6 @@
 import Characters from './components/Characters.vue'
 import About from './components/About.vue'
+import Add from './components/Add.vue'
 
 export default[
   {
@@ -11,5 +12,10 @@ export default[
     name:'About',
     path: '/about',
     component:About
+  },
+  {
+    name:'Add',
+    path: '/add',
+    component:Add
   }
 ]
