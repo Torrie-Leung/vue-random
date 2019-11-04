@@ -56,7 +56,8 @@ export default {
         }
         this.$http.post("http://localhost:3000/characters",newCharacter)
             .then((res) => {
-              console.log(res)
+              // 
+              this.$router.push({path:"/"})
             })
       }
       e.preventDefault();
