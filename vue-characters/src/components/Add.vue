@@ -57,7 +57,7 @@ export default {
         this.$http.post("http://localhost:3000/characters",newCharacter)
             .then((res) => {
               // 
-              this.$router.push({path:"/"})
+              this.$router.push({path:"/",query: {alert:'character info added.'}})
             })
       }
       e.preventDefault();

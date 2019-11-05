@@ -1,5 +1,6 @@
 <template>
   <div class="characters container">
+    <Alert v-if="alert" :message="alert"/>
     <h1 class="page-header">Wonderland System</h1>
     <table class="table table-striped">
       <thead>
@@ -24,21 +25,32 @@
 </template>
 
 <script>
+import Alert from './Alert'
 export default {
   name: 'characters',
+  components:{
+    Alert
+  },
   data(){
     return{
-      characters: []
+      characters: [],
+      alert: ''
     }
   },
   created(){
+    if(this.$route.query.alert){
+      this.alert = this.$route.query.alert
+    }
     this.fetchCharacters()
+  },
+  updated(){
+    // this.fetchCharacters()
   },
   methods: {
     fetchCharacters(){
       this.$http.get("http://localhost:3000/characters")
           .then((res) => {
-            console.log(res.data)
+            //console.log(res.data)
             this.characters = res.data
           })
     }
