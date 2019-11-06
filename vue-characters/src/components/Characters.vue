@@ -17,7 +17,9 @@
           <td>{{character.name}}</td>
           <td>{{character.phone}}</td>
           <td>{{character.email}}</td>
-          <td></td>
+          <td>
+            <router-link class="btn btn-secondary btn-sm" :to="'/character/' + character.id">detail</router-link>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -27,7 +29,7 @@
 <script>
 import Alert from './Alert'
 export default {
-  name: 'characters',
+  name: 'character',
   components:{
     Alert
   },
@@ -44,7 +46,7 @@ export default {
     this.fetchCharacters()
   },
   updated(){
-    // this.fetchCharacters()
+     //this.fetchCharacters()
   },
   methods: {
     fetchCharacters(){
@@ -60,5 +62,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+.btn-sm {
+  padding: 0;
+}
 </style>
