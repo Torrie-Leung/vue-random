@@ -1,15 +1,15 @@
 <template>
   <div class="details container">
+    <router-link to="/" exact class="btn btn-primary">back</router-link>
     <h1 class="page-header">
       {{character.name}}
-      
     </h1>
 
     <ul class="list-group">
       <li class="list-group-item"><span class="glyphicon glyphicon-phone" aria-hidden="true"> {{character.phone}}</span></li>
       <li class="list-group-item"><span class="glyphicon glyphicon-envelope" aria-hidden="true"> {{character.email}}</span></li>
     </ul>
-
+    <br>
     <ul class="list-group">
       <li class="list-group-item"><span class="glyphicon glyphicon-wrench" aria-hidden="true"> {{character.skill}}</span></li>
       <li class="list-group-item"><span class="glyphicon glyphicon-magnet" aria-hidden="true"> {{character.level}}</span></li>
@@ -27,8 +27,24 @@ export default {
     }
   },
   created(){
-    console.log(this.$route.params.id)
-    this.fetchCharacter(this.$route.params.id)
+    const params = this.$route.params.id
+    console.log(typeof Number(params))
+    if(typeof Number(params) === 'number'){
+      this.fetchCharacter(params)
+    }
+    
+  },
+  watch:{
+    $route(to,from){
+      console.log('t-',to,'f-',from)
+      if(this.$route.params.id == 'about'){
+        this.$router.push({path:"/about"})
+      }else if(this.$route.params.id == 'add'){
+        this.$router.push({path:"/add"})
+      }else if(this.$route.params.id == 'character'){
+        this.$router.push({path:"/character"})
+      }
+    }
   },
   methods: {
     fetchCharacter(id){

@@ -18,7 +18,7 @@
           <td>{{character.phone}}</td>
           <td>{{character.email}}</td>
           <td>
-            <router-link class="btn btn-secondary btn-sm" :to="'/character/' + character.id">detail</router-link>
+            <router-link class="btn btn-secondary btn-sm" :to="'/character/' + character.id" exact>detail</router-link>
           </td>
         </tr>
       </tbody>

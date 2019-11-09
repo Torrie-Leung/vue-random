@@ -6,7 +6,7 @@ import Add from './components/Add.vue'
 export default[
   {
     name:'Characters',
-    path: '/',
+    path: '/character',
     component:Characters
   },
   {

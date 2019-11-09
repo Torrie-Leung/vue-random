@@ -10,10 +10,10 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item ">
-          <router-link to="./">Home</router-link>
+          <router-link to="./character" exact>Home</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="./about">About</router-link>
+          <router-link to="./about" exact>About</router-link>
         </li>
         
         <li class="nav-item dropdown">
@@ -28,7 +28,7 @@
 
       <ul class="navbar-nav navbar-right">
         <li class="nav-item ">
-          <router-link to="./add">Add Character</router-link>
+          <router-link to="./add" exact>Add Character</router-link>
         </li>
         
       </ul>
@@ -49,7 +49,12 @@ export default {
   name: 'app',
   components: {
     HelloWorld
-  }
+  },
+  // watch: {
+  //   $router(to,from){
+  //     console.log('to:',to.name,'from:',from.name)
+  //   }
+  // }
 }
 </script>
 
