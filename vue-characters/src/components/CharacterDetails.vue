@@ -1,6 +1,14 @@
 <template>
   <div class="details container">
-    CharacterDetails
+    <h1 class="page-header">
+      {{character.name}}
+      
+    </h1>
+    <ul class="list-group">
+      <li class="list-group-item"><span class="glyphicon glyphicon-phone" aria-hidden="true">{{character.phone}}</span></li>
+      <li><span></span></li>
+    </ul>
+    
   </div>
 </template>
 
@@ -30,5 +38,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  ul {
+    list-style: none;
+  }
 </style>
