@@ -25,6 +25,11 @@
         </div>
 
         <div class="form-group">
+          <label>Skill</label>
+          <input type="text" class="form-control" placeholder="skill" v-model="character.skill">
+        </div>
+
+        <div class="form-group">
           <label>Profile</label>
           <textarea class="form-control" rows="10" v-model="character.profile"></textarea>
         </div>
@@ -51,8 +56,10 @@ export default {
           name : this.character.name,
           email : this.character.email,
           level :this.character.level,
+          skill : this.character.skill,
           phone : this.character.phone,
           profile : this.character.profile
+          
         }
         this.$http.post("http://localhost:3000/characters",newCharacter)
             .then((res) => {
