@@ -3,6 +3,11 @@
     <router-link to="/" exact class="btn btn-primary">back</router-link>
     <h1 class="page-header">
       {{character.name}}
+
+      <span class="float-right">
+        <router-link :to="'/edit/'+character.id" class="btn btn-primary">edit</router-link>
+        <button class="btn btn-danger" @click="deleteCharacter(character.id)">delete</button>
+      </span>
     </h1>
 
     <ul class="list-group">
@@ -52,6 +57,13 @@ export default {
           .then((res) => {
             console.log(res.data)
             this.character = res.data
+          })
+    },
+    deleteCharacter(id){
+      //console.log(id)
+      this.$http.delete("http://localhost:3000/characters/"+id)
+          .then((res) => {
+            this.$router.push({path:'/character'})
           })
     }
   }
