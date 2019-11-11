@@ -71,7 +71,19 @@ export default {
       //console.log('ha')
 
     }
-  }
+  },
+  watch:{
+    $route(to,from){
+      console.log('t-',to,'f-',from)
+      if(this.$route.params.id == 'about'){
+        this.$router.push({path:"/about"})
+      }else if(this.$route.params.id == 'add'){
+        this.$router.push({path:"/add"})
+      }else if(this.$route.params.id == 'character'){
+        this.$router.push({path:"/character"})
+      }
+    }
+  },
 }
 </script>
 
