@@ -1,6 +1,6 @@
 <template>
   <div class="details container">
-    <router-link to="/" exact class="btn btn-primary">back</router-link>
+    <router-link to="/character" exact class="btn btn-primary">back</router-link>
     <h1 class="page-header">
       {{character.name}}
 
@@ -63,7 +63,7 @@ export default {
       //console.log(id)
       this.$http.delete("http://localhost:3000/characters/"+id)
           .then((res) => {
-            this.$router.push({path:'/character'})
+            this.$router.push({path:'/character',query: {alert:'character deleted.'}})
           })
     }
   }

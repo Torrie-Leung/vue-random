@@ -1,7 +1,7 @@
 <template>
-  <div class="add container">
+  <div class="edit container">
     <h1 class="page-header">Add Characters</h1>
-    <form @submit.prevent="addCharacter">
+    <form @submit.prevent="updateCharacter">
       <div class="well">
         <h4>Character Info</h4>
         <div class="form-group">
@@ -41,18 +41,18 @@
 
 <script>
 export default {
-  name: 'add',
+  name: 'edit',
   data(){
     return{
       character: {}
     }
   },
   methods: {
-    addCharacter(e){
+    updateCharacter(e){
       if(!this.character.name ||!this.character.email || !this.character.phone || !this.character.level){
         console.log('please fill up related info')
       }else{
-        let newCharacter = {
+        let updateCharacter = {
           name : this.character.name,
           email : this.character.email,
           level :this.character.level,
@@ -61,10 +61,10 @@ export default {
           profile : this.character.profile
           
         }
-        this.$http.post("http://localhost:3000/characters",newCharacter)
+        this.$http.put("http://localhost:3000/characters/"+this.$route.params.id,updateCharacter)
             .then((res) => {
               // 
-              this.$router.push({path:"/character",query: {alert:'character info added.'}})
+              this.$router.push({path:"/character",query: {alert:'character info updated.'}})
             })
       }
       e.preventDefault();
