@@ -47,7 +47,17 @@ export default {
       character: {}
     }
   },
+  created(){
+    this.fetchCharacterDetail(this.$route.params.id)
+  },
   methods: {
+    fetchCharacterDetail(id){
+      this.$http.get("http://localhost:3000/characters/"+id)
+        .then((res) =>{
+          console.log(res)
+          this.character = res.data
+        })
+    },
     updateCharacter(e){
       if(!this.character.name ||!this.character.email || !this.character.phone || !this.character.level){
         console.log('please fill up related info')
