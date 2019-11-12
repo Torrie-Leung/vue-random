@@ -1,5 +1,8 @@
 <template>
   <div class="add container">
+    <Alert 
+      v-if="alert"
+      :message="alert"/>
     <h1 class="page-header">Add Characters</h1>
     <form @submit.prevent="addCharacter">
       <div class="well">
@@ -40,17 +43,23 @@
 </template>
 
 <script>
+import Alert from './Alert'
 export default {
   name: 'add',
+  components:{
+    Alert
+  },
   data(){
     return{
-      character: {}
+      character: {},
+      alert:''
     }
   },
   methods: {
     addCharacter(e){
       if(!this.character.name ||!this.character.email || !this.character.phone || !this.character.level){
-        console.log('please fill up related info')
+        // console.log('please fill up related info')
+        this.alert = "please fill up related info"
       }else{
         let newCharacter = {
           name : this.character.name,

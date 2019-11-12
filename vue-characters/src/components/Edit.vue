@@ -1,6 +1,6 @@
 <template>
   <div class="edit container">
-    <h1 class="page-header">Add Characters</h1>
+    <h1 class="page-header">Edit Characters</h1>
     <form @submit.prevent="updateCharacter">
       <div class="well">
         <h4>Character Info</h4>
@@ -33,7 +33,7 @@
           <label>Profile</label>
           <textarea class="form-control" rows="10" v-model="character.profile"></textarea>
         </div>
-        <button type="submit" class="btn-primary">Submit</button>
+        <button type="submit" class="btn-primary">Confirm</button>
       </div>
     </form>
   </div>
