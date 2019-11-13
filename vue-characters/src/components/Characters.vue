@@ -2,6 +2,8 @@
   <div class="characters container">
     <Alert v-if="alert" :message="alert"/>
     <h1 class="page-header">Wonderland System</h1>
+    <input type="text" placeholder="search" class="form-control" v-model="filterInput">
+    <br>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -13,7 +15,7 @@
       </thead>
 
       <tbody>
-        <tr v-for="(character,index) in characters" :key="index">
+        <tr v-for="(character,index) in filterBy(characters,filterInput)" :key="index">
           <td>{{character.name}}</td>
           <td>{{character.phone}}</td>
           <td>{{character.email}}</td>
@@ -36,7 +38,8 @@ export default {
   data(){
     return{
       characters: [],
-      alert: ''
+      alert: '',
+      filterInput:''
     }
   },
   created(){
@@ -55,6 +58,11 @@ export default {
             //console.log(res.data)
             this.characters = res.data
           })
+    },
+    filterBy(characters,value){
+      return characters.filter((character) => {
+        return character.name.match(value)
+      })
     }
   }
 }
