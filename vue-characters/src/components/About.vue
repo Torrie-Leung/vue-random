@@ -1,14 +1,17 @@
 <template>
   <div class="about container">
-    about
+    <h1 class="page-header">About</h1>
+    <span class="glyphicon glyphicon-globe" aria-hidden="true"> {{about}}</span>
   </div>
 </template>
 
 <script>
 export default {
   name: 'about',
-  props: {
-    msg: String
+  data(){
+    return{
+      about: "Let's do the Odyssey~"
+    }
   }
 }
 </script>
