@@ -32,13 +32,13 @@
        </div>
 		 	
        <li v-for="(lid, index) in list.choice" >
-        <input type="radio" @click="fetchA(i,index,lid)" :id="lid" :value="lid" v-model="result"> <label for="lid">{{lid}}</label>
+        <input type="radio" @click="fetchA(i,index,lid)" :id="lid" :value="lid" v-model="list.result"> <label for="lid">{{lid}}</label>
         
         
          
 
        </li>
-       <div>picked:{{result}}</div>
+       <div>picked:{{list.result}}</div>
      </ul>
      
     </div>

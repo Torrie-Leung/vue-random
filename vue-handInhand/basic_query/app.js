@@ -14,6 +14,7 @@ var questionnaire = new Vue({
             "text":"今天天气如何" ,
             "choice": ['bad','medium','good','great'],
             'color':false,
+            result:''
             
         },
         {
@@ -21,9 +22,10 @@ var questionnaire = new Vue({
             "text":"伙食如何",
             "choice": ['bad','medium','good','great'],
             'color':false,
+            result:''
         }
 			],
-      result:''
+      
     }
   },
   created () {
