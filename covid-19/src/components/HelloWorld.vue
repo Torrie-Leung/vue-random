@@ -1,41 +1,63 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+    <div ref="mapBox" style="height:800px;width:900px"></div>
   </div>
 </template>
 
 <script>
+import echarts from 'echarts'
+import 'echarts/map/js/china'
+
+const option = {
+  title: {
+    text: 'COVID-19',
+    link:'https://www.who.int/zh/health-topics/coronavirus/coronavirus'
+  },
+  series: [{
+    type: 'map',
+    map: 'china',
+    label: {
+      show: true,
+      color:'#333'
+    },
+    zoom:1.2,
+    itemStyle: {
+      areaColor: 'lightgreen'
+    },
+    emphasis: {
+      label: {
+        fontSize:14,
+        color:'#fff'
+      },
+      itemStyle: {
+        areaColor: 'orange'
+      },
+    }
+  }],
+  visualMap: [{
+    type: 'piecewise',
+    show:true,
+    splitNumber:5,
+    pieces: [
+      {min:10000},
+      {min:1000,max:9999},
+      {min:100,max:999},
+      {min:10,max:99},
+      {max:9},
+      
+    ],
+    // orient:'horizontal'
+  }]
+}
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
-  }
+  },
+  mounted () {
+    let myMap = echarts.init(this.$refs.mapBox);
+    myMap.setOption(option)
+  },
 }
 </script>
 
@@ -54,5 +76,8 @@ li {
 }
 a {
   color: #42b983;
+}
+.hello div{
+  margin: 0 auto;
 }
 </style>
