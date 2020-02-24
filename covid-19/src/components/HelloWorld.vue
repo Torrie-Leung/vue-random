@@ -21,6 +21,7 @@ const option = {
       color:'#333'
     },
     zoom:1.2,
+    data:'',
     itemStyle: {
       areaColor: 'lightgreen'
     },
@@ -55,28 +56,29 @@ export default {
     msg: String
   },
   mounted () {
-    let myMap = echarts.init(this.$refs.mapBox);
-    myMap.setOption(option)
+    this.fetchData()
+    this.myMap = echarts.init(this.$refs.mapBox);
+    this.myMap.setOption(option)
+    
+  },
+  methods: {
+    fetchData() {
+      this.axios.get('http://api.tianapi.com/txapi/ncovcity/index?key=83c5f5148cb4cfc38eba35d34586c50f').then((response) => {
+        
+        let list = response.data.newslist.map(item =>(
+          {name:item.provinceShortName,value:item.confirmedCount}))
+        option.series[0].data = list
+        console.log(list)
+        this.myMap.setOption(option)
+      })
+    }
   },
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+
 .hello div{
   margin: 0 auto;
 }
