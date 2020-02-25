@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <div ref="mapBox" style="height:800px;width:900px"></div>
+    <div ref="mapBox" style="height:800px;width:100%"></div>
   </div>
 </template>
 
@@ -14,6 +14,7 @@ const option = {
     link:'https://www.who.int/zh/health-topics/coronavirus/coronavirus'
   },
   series: [{
+    name: '确诊人数',
     type: 'map',
     map: 'china',
     label: {
@@ -21,6 +22,7 @@ const option = {
       color:'#333'
     },
     zoom:1.2,
+    roam:true,
     data:'',
     itemStyle: {
       areaColor: 'lightgreen'
@@ -48,7 +50,10 @@ const option = {
       
     ],
     // orient:'horizontal'
-  }]
+  }],
+  tooltip: {
+    show:true
+  }
 }
 export default {
   name: 'HelloWorld',
@@ -59,7 +64,10 @@ export default {
     this.fetchData()
     this.myMap = echarts.init(this.$refs.mapBox);
     this.myMap.setOption(option)
-    
+    let _this = this;
+    window.onresize = function(){
+      _this.myMap.resize()
+    }
   },
   methods: {
     fetchData() {
